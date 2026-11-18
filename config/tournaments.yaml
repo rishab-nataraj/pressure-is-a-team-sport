@@ -1,0 +1,55 @@
+# Structure of multi-team competitions, used to build standings and remaining fixtures for
+# Jev call C (stakes). Groups inside a phase are found automatically as connected components
+# of that phase's fixture graph, so only phase boundaries and qualifying places are listed.
+#
+#   phases[].stages        : stage labels in matches.csv belonging to the phase, or
+#   phases[].match_numbers : inclusive [first, last] match_number range (when labels are ambiguous)
+#   phases[].qualify       : qualifying places per group ("advance" = finish in the top N)
+#
+# Competitions not listed fall back to: one phase per non-knockout stage label,
+# qualify = 4 for IPL, 2 if the competition has a knockout, else 1.
+
+competitions:
+  # IPL 2022-2026: 10-team league, top 4 to the playoffs
+  1358: {name: IPL 2022, phases: [{name: league, stages: [League], qualify: 4}]}
+  1715: {name: IPL 2023, phases: [{name: league, stages: [League], qualify: 4}]}
+  2193: {name: IPL 2024, phases: [{name: league, stages: [League], qualify: 4}]}
+  2725: {name: IPL 2025, phases: [{name: league, stages: [League], qualify: 4}]}
+  3298: {name: IPL 2026, phases: [{name: league, stages: [League], qualify: 4}]}
+
+  # Asia Cup 2022: groups of 3 (matches 1-6, top 2), then Super 4 (matches 7-12, top 2 to final).
+  # Both phases are labelled "League" in matches.csv, hence match_number ranges.
+  1533:
+    name: Mens Twenty20 Asia Cup 2022
+    phases:
+      - {name: group, match_numbers: [1, 6], qualify: 2}
+      - {name: super4, match_numbers: [7, 12], qualify: 2}
+
+  # Asia Cup 2025: two groups of 4 (top 2), Super 4 (top 2 to final)
+  3133:
+    name: Asia Cup 2025
+    phases:
+      - {name: group, stages: [League], qualify: 2}
+      - {name: super4, stages: [Super 4], qualify: 2}
+
+  # Emerging / A-team Asia Cups: two groups of 4, top 2 to the semi-finals
+  2670: {name: Mens T20 Emerging Teams Asia Cup 2024, phases: [{name: group, stages: [League], qualify: 2}]}
+  3289: {name: Asia Cup Rising Stars 2025, phases: [{name: group, stages: [League], qualify: 2}]}
+
+  # Tri-series with a final: double round robin, top 2 to the final
+  1608: {name: New Zealand T20I Tri Series 2022/23, phases: [{name: league, stages: [League], qualify: 2}]}
+  3288: {name: Pakistan T20I Tri-Series 2025, phases: [{name: league, stages: [League], qualify: 2}]}
+  3159: {name: United Arab Emirates T20I Tri-Series 2025, phases: [{name: league, stages: [League], qualify: 2}]}
+
+  # Tri-series without a final, and the Asia Cup qualifier: only the table-topper "advances"
+  2398: {name: Netherlands Tri-Nation T20I Series 2024, phases: [{name: league, stages: [Others], qualify: 1}]}
+  2605: {name: "Netherlands Tri-Nation T20I Series [Aug 2024] 2024", phases: [{name: league, stages: [League], qualify: 1}]}
+  1551: {name: Asia Cup T20 Qualifiers 2022, phases: [{name: league, stages: [League], qualify: 1}]}
+
+# Fixed stakes for knockout stages (spec section 4)
+knockout_stakes:
+  Qualifier1: 0.5     # loser still gets Qualifier 2
+  Qualifier2: 1.0
+  Eliminator: 1.0
+  Semi Final: 1.0
+  Final: 1.0

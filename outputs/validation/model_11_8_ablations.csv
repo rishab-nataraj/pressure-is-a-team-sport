@@ -1,0 +1,29 @@
+ablation,role,top10_overlap,same_rank1,spearman_c_common_eligible,n_eligible,top10
+T off,bat,1.0,True,0.9990906708999276,92,Shreyas Iyer; Rovman Powell; Mitchell Marsh; Pathum Nissanka; Namboori Tilak Varma; David Miller; Krunal Pandya; Washington Sundar; Ashutosh Sharma; Heinrich Klaasen
+T off,bowl,0.9,True,0.9971923978773296,74,Sufiyan Muqeem; Mohammad Nawaz; Nathan Ellis; Rashid Khan; Richard Ngarava; Keshav Maharaj; Krunal Pandya; Sunil Narine; Jofra Archer; Trent Boult
+q off,bat,0.9,True,0.996561116785836,91,Shreyas Iyer; Rovman Powell; Mitchell Marsh; Pathum Nissanka; Namboori Tilak Varma; David Miller; Washington Sundar; Krunal Pandya; Ashutosh Sharma; Sherfane Rutherford
+q off,bowl,0.9,True,0.9877934272300469,73,Sufiyan Muqeem; Mohammad Nawaz; Rashid Khan; Richard Ngarava; Nathan Ellis; Krunal Pandya; Sunil Narine; Mujeeb Ur Rahman; Jofra Archer; Wanindu Hasaranga
+k=0,bat,0.7,True,0.9121248499399759,50,Shreyas Iyer; Namboori Tilak Varma; Pathum Nissanka; David Miller; Rovman Powell; Glenn Maxwell; Mitchell Marsh; Hardik Pandya; Lokesh Rahul; Washington Sundar
+k=0,bowl,0.7,False,0.907246564687581,58,Rashid Khan; Nathan Ellis; Sunil Narine; Richard Ngarava; Jofra Archer; Mohammad Nawaz; Krunal Pandya; Patrick Cummins; Taskin Ahmed; Wanindu Hasaranga
+k=0.5,bat,0.8,True,0.9746652113681203,83,Shreyas Iyer; Namboori Tilak Varma; Pathum Nissanka; Rovman Powell; Mitchell Marsh; David Miller; Krunal Pandya; Washington Sundar; Harry Brook; Glenn Maxwell
+k=0.5,bowl,0.7,False,0.9742996248703012,68,Rashid Khan; Nathan Ellis; Mohammad Nawaz; Richard Ngarava; Sunil Narine; Jofra Archer; Krunal Pandya; Lungi Ngidi; Wanindu Hasaranga; Shoriful Islam
+k=2,bat,1.0,False,0.9539894887720975,96,Mitchell Marsh; Shreyas Iyer; Rovman Powell; Washington Sundar; Pathum Nissanka; Heinrich Klaasen; David Miller; Ashutosh Sharma; Krunal Pandya; Namboori Tilak Varma
+k=2,bowl,0.7,False,0.9209590878604962,80,Mohammad Nawaz; Sufiyan Muqeem; Mayank Yadav; Nathan Ellis; Richard Ngarava; Rashid Khan; Krunal Pandya; Mujeeb Ur Rahman; Trent Boult; Faheem Ashraf
+theta=1.5,bat,0.6,False,0.9492769744160177,30,Namboori Tilak Varma; Shreyas Iyer; Mitchell Marsh; Rovman Powell; David Miller; Pathum Nissanka; Glenn Maxwell; Jos Buttler; Lokesh Rahul; Virat Kohli
+theta=1.5,bowl,0.7,False,0.943625450180072,51,Nathan Ellis; Mohammad Nawaz; Richard Ngarava; Rashid Khan; Sunil Narine; Krunal Pandya; Taskin Ahmed; Jofra Archer; Trent Boult; Lockie Ferguson
+theta=p75,bat,0.4,False,0.922077922077922,21,Namboori Tilak Varma; Rovman Powell; David Miller; Pathum Nissanka; Glenn Maxwell; Jos Buttler; Rashid Khan; Rahul Tewatia; Virat Kohli; Kusal Mendis
+theta=p75,bowl,0.6,False,0.9375234521575985,41,Nathan Ellis; Mohammad Nawaz; Richard Ngarava; Rashid Khan; Taskin Ahmed; Krunal Pandya; Jofra Archer; Trent Boult; Lockie Ferguson; Sikandar Raza
+h_max=2.0,bat,1.0,True,0.9889185148652189,92,Shreyas Iyer; Mitchell Marsh; Rovman Powell; Pathum Nissanka; Washington Sundar; Namboori Tilak Varma; Ashutosh Sharma; Krunal Pandya; David Miller; Heinrich Klaasen
+h_max=2.0,bowl,1.0,False,0.9708341372435529,75,Mohammad Nawaz; Sufiyan Muqeem; Richard Ngarava; Rashid Khan; Nathan Ellis; Krunal Pandya; Keshav Maharaj; Jofra Archer; Sunil Narine; Mujeeb Ur Rahman
+h_max=None,bat,0.6,True,0.9786230599694835,93,Shreyas Iyer; Mitchell Marsh; Rovman Powell; Pathum Nissanka; Namboori Tilak Varma; Glenn Maxwell; Jason Holder; Shivam Dube; Harry Brook; David Miller
+h_max=None,bowl,0.9,False,0.8349733101807191,73,Keshav Maharaj; Nathan Ellis; Sufiyan Muqeem; Rashid Khan; Mohammad Nawaz; Taskin Ahmed; Sunil Narine; Richard Ngarava; Jofra Archer; Krunal Pandya
+H=365,bat,0.9,True,0.9785157436468562,85,Shreyas Iyer; Namboori Tilak Varma; Mitchell Marsh; Pathum Nissanka; Rovman Powell; David Miller; Krunal Pandya; Washington Sundar; Ashutosh Sharma; Sherfane Rutherford
+H=365,bowl,0.9,True,0.9619246425216574,68,Sufiyan Muqeem; Rashid Khan; Mohammad Nawaz; Nathan Ellis; Richard Ngarava; Jofra Archer; Sunil Narine; Wanindu Hasaranga; Mujeeb Ur Rahman; Krunal Pandya
+H=730,bat,0.9,False,0.989365473236441,93,Rovman Powell; Shreyas Iyer; Mitchell Marsh; Pathum Nissanka; Namboori Tilak Varma; David Miller; Ashutosh Sharma; Rinku Singh; Washington Sundar; Krunal Pandya
+H=730,bowl,0.9,True,0.9837097371343948,76,Sufiyan Muqeem; Mohammad Nawaz; Nathan Ellis; Krunal Pandya; Richard Ngarava; Keshav Maharaj; Rashid Khan; Sunil Narine; Lockie Ferguson; Mujeeb Ur Rahman
+H=None,bat,0.4,False,0.846795900728485,100,Rovman Powell; Rinku Singh; Mitchell Marsh; Rashid Khan; George Dockrell; Shreyas Iyer; Reeza Hendricks; Sediqullah Atal; Heinrich Klaasen; Harry Brook
+H=None,bowl,0.6,False,0.7897505479595033,73,Krunal Pandya; Sufiyan Muqeem; Nathan Ellis; Mohammad Nawaz; Sikandar Raza; Patrick Cummins; Lockie Ferguson; Taskin Ahmed; Sunil Narine; Keshav Maharaj
+entry_li,bat,0.4,False,0.4063157894736842,77,Mitchell Marsh; Harry Brook; Phil Salt; Virat Kohli; Pathum Nissanka; Ishan Kishan; Shreyas Iyer; Shivam Dube; Rovman Powell; Dhruv Jurel
+entry_li,bowl,0.8,False,0.6605772743880162,73,Mohammad Nawaz; Sunil Narine; Richard Ngarava; Rashid Khan; Sufiyan Muqeem; Krunal Pandya; Nathan Ellis; Keshav Maharaj; Gareth Delany; Trent Boult
+emerging cups dropped,bat,0.9,True,0.9990636704119852,89,Shreyas Iyer; Rovman Powell; Mitchell Marsh; Pathum Nissanka; Namboori Tilak Varma; David Miller; Krunal Pandya; Washington Sundar; Heinrich Klaasen; Harry Brook
+emerging cups dropped,bowl,0.9,False,0.9954728370221326,73,Mohammad Nawaz; Nathan Ellis; Rashid Khan; Richard Ngarava; Keshav Maharaj; Krunal Pandya; Sunil Narine; Jofra Archer; Mujeeb Ur Rahman; Trent Boult

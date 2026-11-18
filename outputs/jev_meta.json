@@ -1,0 +1,11 @@
+{
+  "providers": {
+    "wp": "empirical",
+    "p_next": "empirical",
+    "stakes": "empirical"
+  },
+  "jev_model": null,
+  "jev_usage": null,
+  "jev_cache": null,
+  "n_states": 199208
+}

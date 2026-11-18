@@ -1,0 +1,164 @@
+{
+  "synthetic_recovery": {
+    "0.5": {
+      "corr_c_eligible": 0.292,
+      "spearman_c_eligible": 0.259,
+      "corr_tau": 0.278
+    },
+    "1.0": {
+      "corr_c_eligible": 0.53,
+      "spearman_c_eligible": 0.537,
+      "corr_tau": 0.455
+    },
+    "2.0": {
+      "corr_c_eligible": 0.757,
+      "spearman_c_eligible": 0.749,
+      "corr_tau": 0.524
+    },
+    "4.0": {
+      "corr_c_eligible": 0.839,
+      "spearman_c_eligible": 0.893,
+      "corr_tau": 0.589
+    }
+  },
+  "mover_graph": {
+    "components": 13,
+    "component_team_lists": [
+      [
+        "Afghanistan",
+        "Afghanistan A",
+        "Australia",
+        "Bangladesh",
+        "Bangladesh A",
+        "Chennai Super Kings",
+        "Delhi Capitals",
+        "England",
+        "Gujarat Titans",
+        "India",
+        "India A",
+        "Ireland",
+        "Kolkata Knight Riders",
+        "Lucknow Super Giants",
+        "Mumbai Indians",
+        "New Zealand",
+        "Punjab Kings",
+        "Rajasthan Royals",
+        "Royal Challengers Bengaluru",
+        "South Africa",
+        "Sri Lanka",
+        "Sri Lanka A",
+        "Sunrisers Hyderabad",
+        "West Indies",
+        "Zimbabwe"
+      ],
+      [
+        "Pakistan",
+        "Pakistan A"
+      ],
+      [
+        "United Arab Emirates"
+      ],
+      [
+        "Netherlands"
+      ],
+      [
+        "Oman"
+      ],
+      [
+        "Hong Kong"
+      ],
+      [
+        "Scotland"
+      ],
+      [
+        "Nepal"
+      ],
+      [
+        "Canada"
+      ],
+      [
+        "United States Of America"
+      ]
+    ],
+    "largest_component_teams": 25,
+    "pressure_exposure_share_from_movers": 0.6354211245592465,
+    "player_roles_with_2plus_teams": 478
+  },
+  "start_stability": {
+    "seeds": 20,
+    "max_abs_param_diff": 6.155220116151744e-10,
+    "max_param_scale": 0.003781399958719778,
+    "max_c_diff": 2.163214182435147e-11,
+    "all_converged": true,
+    "iters_range": [
+      79,
+      80
+    ]
+  },
+  "one_shot": {
+    "loop_iters": 104,
+    "max_diff_beta": 4.676953811212636e-13,
+    "max_diff_c": 1.395495047643025e-13,
+    "max_diff_q": 4.199612771253747e-12,
+    "max_diff_tau": 4.6917214240722004e-14,
+    "max_diff_mu": 4.4414235744055786e-12,
+    "scale_c": 0.0007466004550936811
+  },
+  "out_of_time": {
+    "train_end": "2024-12-31",
+    "train_stints": 27474,
+    "test_stints": 18355,
+    "bat_all": {
+      "n": 285,
+      "spearman": -0.010746599813372244,
+      "p_value": 0.8566569277700377
+    },
+    "bat_train_eligible": {
+      "n": 51,
+      "spearman": -0.06271493212669683,
+      "p_value": 0.661965081057077
+    },
+    "bowl_all": {
+      "n": 240,
+      "spearman": 0.038309776015680794,
+      "p_value": 0.5547812112962597
+    },
+    "bowl_train_eligible": {
+      "n": 50,
+      "spearman": -0.192124849939976,
+      "p_value": 0.18133436092825211
+    }
+  },
+  "bootstrap": {
+    "bat": {
+      "median_interval_width_top10": 37.053343326352504,
+      "mean_p_top10_of_top10": 0.5433333333333333,
+      "players_with_p_top_over_0.5": 5
+    },
+    "bowl": {
+      "median_interval_width_top10": 50.29751224949774,
+      "mean_p_top10_of_top10": 0.5546666666666666,
+      "players_with_p_top_over_0.5": 7
+    }
+  },
+  "shuffle": {
+    "ratio_real_over_permute_h": 0.9356912243027601,
+    "ratio_real_over_sign_flip": 1.0247287394779456,
+    "share_reps_real_wider_permute": 0.1,
+    "share_reps_real_wider_signflip": 0.6
+  },
+  "prior_sd": {
+    "c": 0.0009593000375809489,
+    "tau": 0.00012384510231890547
+  },
+  "ablations_mean_overlap": {
+    "bat": 0.75,
+    "bowl": 0.8
+  },
+  "csk_claim": {
+    "spearman_distinct_per_win_vs_T": 0.0303030303030303,
+    "csk_rank_by_distinct_per_win": 8,
+    "csk_T": 50.9369438091213,
+    "n_ipl_teams": 10
+  }
+}

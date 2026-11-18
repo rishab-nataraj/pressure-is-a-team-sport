@@ -1,0 +1,25 @@
+# data pack (competition data, not redistributed) and derived tables
+data/raw/*.csv
+data/interim/
+data/jev_cache/
+!data/raw/.gitkeep
+
+# secrets
+.env
+*.key
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+
+# OS / editors
+.DS_Store
+__MACOSX/
+.idea/
+.vscode/

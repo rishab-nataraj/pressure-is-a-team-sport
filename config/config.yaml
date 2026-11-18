@@ -1,0 +1,123 @@
+# SupeRR Selector S2 - pressure model configuration.
+# Every modelling decision in "Project Spec.md" and "Jev Pressure Data Spec.md" is a switch here.
+
+paths:
+  raw: data/raw              # the six CSVs from the data pack
+  interim: data/interim      # parquet tables written by stages 0-5
+  jev_cache: data/jev_cache  # sqlite cache of raw Jev requests/answers (keyed by input hash)
+  outputs: outputs           # final tables (top-10 lists, evidence, validation)
+  report: report             # methodology report + figures
+
+data:
+  exclude_super_overs: true          # innings 3/4 never enter P or T
+  wide_extras: [wide]
+  # The data pack says legal = extras_type not in {wide, Overstep}. The data show
+  # extras_type == "other" is a height no-ball (Beamer / Full Toss): treating it as legal
+  # gives 210 seven-ball overs, treating it as a no-ball gives ~6 legal balls in 99.99% of overs.
+  noball_extras: [Overstep, other]
+  bye_extras: [byes, legbyes]
+  keep_ties: true                    # tied matches (null win_team_id but result "Tied") are real contests
+  emerging_comp_ids: [2670, 3289]    # Emerging Teams Asia Cup 2024, Asia Cup Rising Stars 2025
+  drop_emerging: false               # ablation switch (plan section 11.8)
+  a_teams_as_parent: false           # decision 8: "India A" is its own canonical team by default
+  venue_par_prior_innings: 3         # shrink venue par toward the global mean with this many pseudo-innings
+
+states:
+  # When innings 1 ends, wp_after = 1 - wp(innings-2 starting state). "innings1" uses the
+  # innings-1 ball quota for that starting state (neutral continuation: a DLS revision made
+  # between innings is not credited to the last ball); "actual" uses the real innings-2 quota.
+  inn2_start_max_balls: innings1
+
+provider:
+  # auto = Jev if the API key env var is set, else the empirical fallback (plan section 12.5).
+  wp: auto        # auto | jev | empirical      (call A)
+  p_next: auto    # auto | jev | empirical      (call B)
+  stakes: auto    # auto | jev | empirical      (call C)
+
+empirical:
+  n_folds: 5                 # cross-fitting by match: a match's states are scored by a model not trained on it
+  seed: 0
+  inn1_soft_labels: true     # innings-1 labels = innings-2 model's wp at the start of the chase (consistent at the break)
+  platt: true                # Platt-calibrate the innings-2 model on its out-of-fold scores
+  endgame_balls: 6           # exact backward induction over (runs, wickets, balls left) for each innings' last K balls
+  bellman_final_ball: false  # one-step backup on the final ball only (superseded by endgame_balls > 0)
+  use_venue_par: false       # venue par overfits (it nearly identifies a venue); held-out log-loss is no better
+  gbm:                       # large leaves: rows within a match are highly correlated (~110 per innings)
+    max_iter: 300
+    learning_rate: 0.05
+    max_leaf_nodes: 15
+    min_samples_leaf: 2000
+    l2_regularization: 1.0
+  p_next_smoothing: 1.0      # Laplace pseudo-count per outcome class
+  stakes_sims: 4000          # Monte Carlo draws of remaining fixtures (coin-flip results)
+  nrr_noise: 0.35            # sd of random NRR drift used to break points ties in simulation
+
+jev:
+  model: jev-1.13.0                               # pinned version; the response's model field is logged too
+  base_url: https://api.typesafe.ai/v1/systemone
+  api_key_env: TYPESAFE_API_KEY
+  timeout: 30
+  max_workers: 32
+  max_retries: 8
+  backoff_base: 1.0
+  flush_every: 500                                # write cache to disk every N answers
+  coarse_states: false                            # drop partnership/batter fields to raise cache hits
+  bellman_final_ball: false                       # keep Jev's own numbers on the final ball (spec purity)
+  endgame_balls: 0                                # >0 = end-game solver on top of Jev (uses the provider's p_next)
+  repro_sample_frac: 0.01                         # spec 7.7: re-query this share live and compare
+  usd_per_million_input_tokens: 0.042
+
+attribution:
+  bowler_charged_for_byes: true      # spec default; false = bowler judged on the no-bye counterfactual
+  li_floor: 0.1                      # floor on LI whenever we divide by it
+
+stakes:
+  bilateral_scale: 1.0   # multiply bilateral-series stakes (1.0 = spec: decider 1, dead rubber 0)
+
+pressure:
+  k: 1.0               # stakes weight: pressure = LI * (1 + k * stakes)
+  theta: 1.0           # pressure threshold; h = clip(pi - theta, 0, h_max)
+  h_max: 3.0           # null = no cap
+  half_life_days: 540  # recency half-life for P; null = no recency
+  li_column: mean_li   # mean_li | entry_li (ablation for risk 12.3)
+
+model:
+  split_weights: true      # recency weights for player steps, none for team steps
+  damp: 1.0
+  iters: 3000
+  tol: 1.0e-9
+  seed: 0
+  use_tau: true
+  use_q: true
+  lambda_grid: [30, 100, 300, 1000, 3000, 10000, 30000]
+  lambda_default: {beta: 300, c: 3000, q: 1000, tau: 3000}
+  cv_folds: 5
+  cv_search: coordinate    # coordinate | full
+  cv_sweeps: 3
+  cv_weight: n             # held-out loss weights: n (inverse variance) | w (recency-weighted)
+  bootstrap_reps: 300
+  bootstrap_interval: [5, 95]
+
+eligibility:
+  bat:
+    min_pressure_stints: 20
+    min_pressure_balls: 150
+  bowl:
+    min_pressure_stints: 40      # pressure overs
+  min_recent_pressure_stints: 5
+  recent_months: 24
+  require_delivers: true         # beta + c > 0: above role average at h = 1
+  require_selectable: true       # name present in competition_team_player_mapping (Unstop dropdown)
+
+rank:
+  top_n: 10
+
+validation:
+  seeds: 20
+  shuffle_reps: 10
+  synthetic_reps: 3
+  synthetic_effect_multipliers: [0.5, 1.0, 2.0, 4.0]   # x the CV-implied prior sd of c and tau
+  oot_train_end: "2024-12-31"
+  oot_min_test_exposure: 5.0
+  ablations: true
+  top_li_share: 0.01

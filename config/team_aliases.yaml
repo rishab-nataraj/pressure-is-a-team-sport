@@ -1,0 +1,19 @@
+# Canonical team names. Keys are raw team_name values (case-insensitive, whitespace-normalised),
+# values are the canonical name. Teams not listed keep their own (normalised) name.
+# The data pack has no renames today (every team_id has one team_name), but franchises and
+# boards do rename, so the table is kept so that older/newer packs resolve to one T per team.
+aliases:
+  Royal Challengers Bangalore: Royal Challengers Bengaluru
+  Kings XI Punjab: Punjab Kings
+  Delhi Daredevils: Delhi Capitals
+  Deccan Chargers: Sunrisers Hyderabad
+  Rising Pune Supergiant: Rising Pune Supergiants
+  United States of America: United States Of America
+  USA: United States Of America
+  UAE: United Arab Emirates
+  U.A.E.: United Arab Emirates
+  Srilanka: Sri Lanka
+  West Indies Cricket Board: West Indies
+
+# Used only when data.a_teams_as_parent is true (ablation): "<Country> A" -> "<Country>".
+a_team_suffixes: [" A", " Emerging", " U23"]

@@ -1,0 +1,15 @@
+innings,check,violations,share,n
+1,wp(one) >= wp(dot),0,0.0,104006
+1,wp(two) >= wp(one),0,0.0,104006
+1,wp(three) >= wp(two),0,0.0,104006
+1,wp(four) >= wp(three),0,0.0,104006
+1,wp(six) >= wp(four),0,0.0,104006
+1,wp(dot) >= wp(wicket),81,0.000778801223006365,104006
+1,wp(wide) >= wp(dot),214,0.002057573601522989,104006
+2,wp(one) >= wp(dot),0,0.0,95202
+2,wp(two) >= wp(one),0,0.0,95202
+2,wp(three) >= wp(two),0,0.0,95202
+2,wp(four) >= wp(three),0,0.0,95202
+2,wp(six) >= wp(four),0,0.0,95202
+2,wp(dot) >= wp(wicket),11,0.0001155437910968257,95202
+2,wp(wide) >= wp(dot),16,0.00016806369614083736,95202

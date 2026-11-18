@@ -1,0 +1,79 @@
+{
+  "providers": {
+    "wp": "empirical",
+    "p_next": "empirical",
+    "stakes": "empirical"
+  },
+  "calibration": {
+    "innings1": {
+      "brier": 0.21914648861107283,
+      "log_loss": 0.6273305283857553,
+      "max_bin_gap": 0.06678398193383817
+    },
+    "innings2": {
+      "brier": 0.12826212507487858,
+      "log_loss": 0.39649348540326684,
+      "max_bin_gap": 0.025270869218291803
+    }
+  },
+  "martingale_overall": -7.446162451899459e-05,
+  "sanity_total_violations": 322,
+  "free_consistency": {
+    "pure_outcome_balls": 192844,
+    "exact_match_share": 0.9999377735371596,
+    "mean_abs_diff": 7.165220494369461e-08,
+    "p99_abs_diff": 0.0,
+    "note": "differences come from strike changes the rules cannot know (batters crossing on a catch, a new batter at the other end) and the final-ball backup"
+  },
+  "pnext_max_abs_diff": 0.2378,
+  "stakes_vs_advancement": {
+    "brier": 0.14232059316860465,
+    "n": 860,
+    "brier_coinflip": 0.25
+  },
+  "top_leverage": {
+    "n": 1992,
+    "innings2_share": 0.9437751004016064,
+    "death_overs_share": 0.8785140562248996,
+    "close_chase_share": 0.9061244979919679,
+    "innings2_death_share": 0.8263052208835341,
+    "li_threshold": 5.421424992778285
+  },
+  "reproducibility": {
+    "situations_sha256": "1a2930df94c34fa63ef92540faa64fdf0be83872f7f74424d88af81f7efa07e4",
+    "note": "empirical provider: seeded and deterministic; re-running stage 2 reproduces the same numbers (compare the hash above)"
+  },
+  "wp_provider_comparison": null,
+  "stakes_by_kind": {
+    "bilateral": {
+      "count": 764.0,
+      "mean": 0.434,
+      "std": 0.249,
+      "min": 0.0,
+      "25%": 0.375,
+      "50%": 0.5,
+      "75%": 0.5,
+      "max": 1.0
+    },
+    "knockout": {
+      "count": 62.0,
+      "mean": 0.919,
+      "std": 0.185,
+      "min": 0.5,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 1.0,
+      "max": 1.0
+    },
+    "league": {
+      "count": 860.0,
+      "mean": 0.224,
+      "std": 0.197,
+      "min": 0.0,
+      "25%": 0.101,
+      "50%": 0.204,
+      "75%": 0.271,
+      "max": 1.0
+    }
+  }
+}

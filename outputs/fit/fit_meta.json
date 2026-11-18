@@ -1,0 +1,40 @@
+{
+  "lambdas": {
+    "beta": 300.0,
+    "c": 1000.0,
+    "q": 1000.0,
+    "tau": 30000.0
+  },
+  "mu": [
+    -0.0014122333870712146,
+    -8.514808325707767e-05
+  ],
+  "iters": 79,
+  "converged": true,
+  "design_params": {
+    "k": 1.0,
+    "theta": 1.0,
+    "theta_value": 1.0,
+    "h_max": 3.0,
+    "half_life": 540,
+    "split_weights": true,
+    "li_col": "mean_li",
+    "ref_date": "2026-11-01"
+  },
+  "n_stints": 45697,
+  "n_player_roles": 1537,
+  "n_teams": 38,
+  "n_matches": 843,
+  "cv": {
+    "baseline_only_loss": 0.00010924553583007474,
+    "best_loss": 0.0001092292505468861,
+    "at_grid_edge": {
+      "c": false,
+      "tau": true,
+      "beta": false,
+      "q": false
+    }
+  },
+  "sigma2": 0.0009202565621028101,
+  "bootstrap_reps": 300
+}
